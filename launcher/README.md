@@ -9,6 +9,9 @@
 ### 编译并安装
 `fyne install`
 
+### or 交叉编译
+`fyne-cross windows`
+![cross.png](../res/cross.png)
 ### 拷贝前后端
 1. 上一步完成后，会自动在本机生成适用的程序。桌面启动器的可执行文件即为launcher。
 2. 将后端项目server生成的可执行程序server拷贝到该目录。

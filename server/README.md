@@ -9,5 +9,7 @@
 ## 开发指南
 ### 编译
 `go build`
+### or 交叉编译
+`GOOS=windows go build`
 ### 部署
 将生成的可执行文件放入launcher程序同目录

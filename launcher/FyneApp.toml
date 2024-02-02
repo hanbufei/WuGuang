@@ -1,8 +1,8 @@
 Website = "https://github.com/hanbufei/wuguang"
 
 [Details]
-Icon = "Icon.png"
-Name = "WuGuang"
-ID = "com.github.hanbufei.wuguang"
-Version = "1.0.0"
-Build = 1
+  Icon = "Icon.png"
+  Name = "WuGuang"
+  ID = "com.github.hanbufei.wuguang"
+  Version = "1.0.0"
+  Build = 2

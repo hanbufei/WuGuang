@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "author": "hanbufei <flamesaber@sina.com>",
+  "scripts": {
+    "dev": "umi dev",
+    "build": "umi build",
+    "postinstall": "umi setup",
+    "setup": "umi setup",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^5.2.6",
+    "@tinymce/tinymce-react": "^4.3.2",
+    "antd": "^5.12.5",
+    "axios": "^1.6.2",
+    "base-64": "^1.0.0",
+    "react-quill": "^2.0.0",
+    "umi": "^4.0.90"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "@umijs/plugins": "^4.0.90",
+    "typescript": "^5.3.3"
+  }
+}

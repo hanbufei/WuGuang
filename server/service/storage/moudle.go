@@ -9,26 +9,23 @@ import (
 // 所有的路径，都以   /或 \  开头
 // 所有的路径，都不以 /或 \  结尾
 var (
-	//XmlFile  = gfile.SelfDir() + gfile.Separator + "xiangsui.xml"
-	//rootPath string
+//XmlFile  = gfile.SelfDir() + gfile.Separator + "xiangsui.xml"
+//rootPath string
 )
 
 func GetRootPath() (string, error) {
 	tmp := formatPath(config.RootPath)
-	err := checkRootPath(tmp)
-	if err != nil {
-		return "", err
-	}
+	//err := checkRootPath(tmp)
+	//if err != nil {
+	//	return "", err
+	//}
 	return tmp, nil
 }
 
 func SetRootPath(path string) error {
 	tmp := formatPath(path)
-	err := checkRootPath(tmp)
-	if err != nil {
-		return err
-	}
 	config.RootPath = tmp
+	config.TmpRoot = strings.ReplaceAll(config.RootPath, "\\", "/")
 	return nil
 }
 

@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/os/gfile"
+	"server/config"
 	"server/service/storage"
 	"strings"
 )
@@ -25,9 +26,13 @@ func (c *Controller) InitMenu(ctx context.Context, req *InitMenuReq) (res *InitM
 	result, _ := gfile.ScanDir(rootpath, "*", false)
 	for _, item := range result {
 		tmpdata := Menu{}
-		key := strings.Replace(item, rootpath, "", 1)
-		tmpdata.Key = strings.ReplaceAll(key, "\\", "/")
-		tmpdata.Title = getTitle(key)
+		item = strings.ReplaceAll(item, "\\", "/")
+		tmpdata.Key = strings.Replace(item, config.TmpRoot, "", 1)
+		tmpdata.Title = getTitle(tmpdata.Key)
+
+		//key := strings.Replace(item, rootpath, "", 1)
+		//tmpdata.Key = strings.ReplaceAll(key, "\\", "/")
+		//tmpdata.Title = getTitle(key)
 		//不显示隐藏文件
 		if !(strings.HasPrefix(tmpdata.Title, ".")) {
 			if gfile.IsFile(item) {
@@ -56,16 +61,19 @@ func (c *Controller) ListMenu(ctx context.Context, req *ListMenuReq) (res *ListM
 		err = gerror.New("选择的不是目录")
 		return
 	}
-	if rootpath+req.Key == "/"{
+	if rootpath+req.Key == "/" {
 		err = gerror.New("请设置笔记本路径")
 		return
 	}
 	result, _ := gfile.ScanDir(rootpath+req.Key, "*", false)
 	for _, item := range result {
 		tmpdata := Menu{}
-		key := strings.Replace(item, rootpath, "", 1)
-		tmpdata.Key = strings.ReplaceAll(key, "\\", "/")
-		tmpdata.Title = getTitle(key)
+		item = strings.ReplaceAll(item, "\\", "/")
+		tmpdata.Key = strings.Replace(item, config.TmpRoot, "", 1)
+		tmpdata.Title = getTitle(tmpdata.Key)
+		//key := strings.Replace(item, rootpath, "", 1)
+		//tmpdata.Key = strings.ReplaceAll(key, "\\", "/")
+		//tmpdata.Title = getTitle(key)
 		//不显示隐藏文件
 		if !(strings.HasPrefix(tmpdata.Title, ".")) {
 			if gfile.IsFile(item) {

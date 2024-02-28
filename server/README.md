@@ -8,8 +8,8 @@
 
 ## 开发指南
 ### 编译
-`go build`
+`go build -ldflags -H=windowsgui `
 ### or 交叉编译
-`GOOS=windows go build`
+`GOOS=windows go build -ldflags -H=windowsgui`
 ### 部署
 将生成的可执行文件放入launcher程序同目录

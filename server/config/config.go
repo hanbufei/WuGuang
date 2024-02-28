@@ -6,6 +6,7 @@ import (
 	"github.com/gogf/gf/v2/os/gfile"
 	"github.com/gogf/gf/v2/os/gres"
 	"regexp"
+	"strings"
 )
 
 var (
@@ -13,6 +14,7 @@ var (
 	ReadOnly string
 	RunPath  string
 	RootPath string
+	TmpRoot  string
 )
 
 // 从命令行获取接口地址
@@ -21,6 +23,7 @@ func Init() {
 	flag.StringVar(&ReadOnly, "r", "false", "只读模式")
 	flag.StringVar(&RunPath, "runpath", "", "程序运行目录")
 	flag.StringVar(&RootPath, "rootpath", "~", "笔记根目录")
+	TmpRoot = strings.ReplaceAll(RootPath, "\\", "/")
 	flag.Parse()
 }
 

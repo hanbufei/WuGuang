@@ -114,6 +114,8 @@ function XS_Sider({messageApi,fileKey,setFileKey,treeData,setTreeData,updateSide
                         content: '删除 '+fileKey+' 成功',
                         duration: 1,
                     });
+                    //更新树
+                    updateTree(fileKey);
                 }else {
                     messageApi.open({
                         type: 'error',
@@ -124,8 +126,6 @@ function XS_Sider({messageApi,fileKey,setFileKey,treeData,setTreeData,updateSide
             })
             resolve()
         });
-        //更新树
-        updateTree(fileKey);
     }
 
     return (

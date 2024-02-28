@@ -6,6 +6,8 @@ import XS_Content from "@/pages/content";
 import XS_Tag from "@/pages/footer/tag";
 import axios from "axios";
 import env from "@/env";
+import copy from 'copy-to-clipboard';
+import {TurndownService} from '@/assets/turndown'
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -76,6 +78,18 @@ function App() {
             resolve();
         });
     }
+
+    //将内容区转换为marddown格式并复制到剪切板
+    var ts = new TurndownService();
+    const changeToMd  = ()  => {
+        var result = ts.turndown(editorRef.current.getContent())
+        copy(result)
+        messageApi.open({
+            type: 'success',
+            content: '已复制到剪切板',
+            duration: 1,
+        });
+    }
         
     return (
             <Layout>
@@ -96,7 +110,8 @@ function App() {
                                        setFileKey = {setFileKey}
                                        setContent = {setContent}
                                        setTreeData = {setTreeData}
-                                       saveContent = {saveContent}/>
+                                       saveContent = {saveContent}
+                                        changeToMd={changeToMd}/>
                         </Header>
                         <XS_Tag fileKey = {fileKey}/>
                         <Content style={contentStyle}>

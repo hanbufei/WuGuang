@@ -10,9 +10,9 @@
 
 下载本项目之后进入项目根路径，下载如下依赖：
 
-`pnpm i antd axios @ant-design/pro-layout -S`
+`pnpm i antd axios @ant-design/pro-layout turndown copy-to-clipboard react-markdown -S`
 
-###编译
+### 编译
 `pnpm build`
 
 

@@ -52,7 +52,7 @@ function App() {
                     updateTreeData(origin, key, data),
                 );
                 resolve();
-            }, 1000);
+            }, 500);
         });
 
     //保存笔记

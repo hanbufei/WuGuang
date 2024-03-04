@@ -27,12 +27,8 @@ func (c *Controller) InitMenu(ctx context.Context, req *InitMenuReq) (res *InitM
 	for _, item := range result {
 		tmpdata := Menu{}
 		item = strings.ReplaceAll(item, "\\", "/")
-		tmpdata.Key = strings.Replace(item, config.TmpRoot, "", 1)
+		tmpdata.Key = strings.Replace(item, storage.GetTmpRoot(), "", 1)
 		tmpdata.Title = getTitle(tmpdata.Key)
-
-		//key := strings.Replace(item, rootpath, "", 1)
-		//tmpdata.Key = strings.ReplaceAll(key, "\\", "/")
-		//tmpdata.Title = getTitle(key)
 		//不显示隐藏文件
 		if !(strings.HasPrefix(tmpdata.Title, ".")) {
 			if gfile.IsFile(item) {
@@ -71,9 +67,6 @@ func (c *Controller) ListMenu(ctx context.Context, req *ListMenuReq) (res *ListM
 		item = strings.ReplaceAll(item, "\\", "/")
 		tmpdata.Key = strings.Replace(item, config.TmpRoot, "", 1)
 		tmpdata.Title = getTitle(tmpdata.Key)
-		//key := strings.Replace(item, rootpath, "", 1)
-		//tmpdata.Key = strings.ReplaceAll(key, "\\", "/")
-		//tmpdata.Title = getTitle(key)
 		//不显示隐藏文件
 		if !(strings.HasPrefix(tmpdata.Title, ".")) {
 			if gfile.IsFile(item) {

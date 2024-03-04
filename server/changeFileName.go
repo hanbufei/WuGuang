@@ -6,7 +6,7 @@ import (
 )
 
 // 批量修改文件后缀：把 wg 改为 html
-func main() {
+func main1() {
 	rootpath := "/Users/hanfei/wgbj"
 	result, _ := gfile.ScanDir(rootpath, "*", true)
 	for _, item := range result {

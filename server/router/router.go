@@ -6,7 +6,6 @@ import (
 	"server/service/content"
 	"server/service/menu"
 	"server/service/storage"
-	"server/service/version"
 )
 
 func MiddlewareCORS(r *ghttp.Request) {

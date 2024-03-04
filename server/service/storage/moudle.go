@@ -8,24 +8,24 @@ import (
 
 // 所有的路径，都以   /或 \  开头
 // 所有的路径，都不以 /或 \  结尾
-var (
+//var (
 //XmlFile  = gfile.SelfDir() + gfile.Separator + "xiangsui.xml"
 //rootPath string
-)
+//)
 
 func GetRootPath() (string, error) {
 	tmp := formatPath(config.RootPath)
-	//err := checkRootPath(tmp)
-	//if err != nil {
-	//	return "", err
-	//}
 	return tmp, nil
+}
+
+func GetTmpRoot() string {
+	config.TmpRoot = strings.ReplaceAll(config.RootPath, "\\", "/")
+	return config.TmpRoot
 }
 
 func SetRootPath(path string) error {
 	tmp := formatPath(path)
 	config.RootPath = tmp
-	config.TmpRoot = strings.ReplaceAll(config.RootPath, "\\", "/")
 	return nil
 }
 

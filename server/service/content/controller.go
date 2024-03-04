@@ -66,10 +66,10 @@ func (c *Controller) AddReq(ctx context.Context, req *AddReq) (res *AddRes, err 
 	// 新增文件
 	flag := common.GetExtName(gfile.ExtName(key))
 	switch flag {
-	case "wg":
+	case "html":
 		_, err = gfile.Create(rootpath + key)
 	default:
-		err = gerror.New("仅允许新增 wg 后缀的笔记")
+		err = gerror.New("仅允许新增 html 后缀的笔记")
 	}
 	return
 }
@@ -101,10 +101,10 @@ func (c *Controller) DeleteReq(ctx context.Context, req *DeleteReq) (res *Delete
 	// 删除文件
 	flag := common.GetExtName(gfile.ExtName(key))
 	switch flag {
-	case "wg":
+	case "html":
 		err = gfile.Remove(rootpath + key)
 	default:
-		err = gerror.New("仅允许删除 wg 后缀的笔记")
+		err = gerror.New("仅允许删除 html 后缀的笔记")
 	}
 	return
 }

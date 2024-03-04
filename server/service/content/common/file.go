@@ -7,9 +7,6 @@ import (
 // 判断文件类型
 func GetExtName(extName string) (result string) {
 	extName = strings.ToLower(extName)
-	if extName == "wg" {
-		result = "wg"
-	}
 	if extName == "txt" {
 		result = "txt"
 	}

@@ -21,12 +21,6 @@ var R = new(Router)
 type Router struct{}
 
 func (router *Router) BindController(ctx context.Context, group *ghttp.RouterGroup) {
-	//version 路由，绑定url和controller
-	group.Group("/version", func(group *ghttp.RouterGroup) {
-		group.Bind(
-			version.New(),
-		)
-	})
 	//storage 路由
 	group.Group("/storage", func(group *ghttp.RouterGroup) {
 		group.Middleware(MiddlewareCORS)

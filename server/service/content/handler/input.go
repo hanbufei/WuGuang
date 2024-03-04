@@ -15,9 +15,9 @@ func HandlerInput(path string, content string) error {
 	}
 	flag := common.GetExtName(gfile.ExtName(path))
 	switch flag {
-	case "wg":
-		return fileType.SaveXsbj(rootpath+path, content)
+	case "html":
+		return fileType.SaveHtml(rootpath+path, content)
 	default:
-		return gerror.New("仅允许 wg 后缀的笔记")
+		return gerror.New("仅允许保存 html 后缀的笔记")
 	}
 }

@@ -8,7 +8,7 @@
 
 ## 开发指南
 ### 编译
-`go build -ldflags -H=windowsgui `
+`go build`
 ### or 交叉编译
 `GOOS=windows go build -ldflags -H=windowsgui`
 ### 部署

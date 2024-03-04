@@ -14,8 +14,6 @@ func HandlerOut(path string) string {
 	}
 	flag := common.GetExtName(gfile.ExtName(path))
 	switch flag {
-	case "wg":
-		return fileType.ReadXsbj(rootpath + path)
 	case "txt":
 		return fileType.ReadTxt(rootpath + path)
 	case "md":
@@ -25,7 +23,6 @@ func HandlerOut(path string) string {
 	default:
 		return "[error]选择的文件不是受支持的文件类型！\n" +
 			"目前支持的类型如下：\n" +
-			"wg\n" +
 			"txt\n" +
 			"md\n" +
 			"html"

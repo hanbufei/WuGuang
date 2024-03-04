@@ -76,7 +76,7 @@ function NewFilePage({messageApi,fileKey,setFileKey,setContent,updateTree,isOpen
                     <Radio.Group onChange={onChange} value={extName}>
                             <Space>
                                 <Radio value={""}>目录</Radio>
-                                <Radio value={".wg"}>笔记(富文本)</Radio>
+                                <Radio value={".html"}>笔记</Radio>
                             </Space>
                     </Radio.Group>
                 </Form.Item>

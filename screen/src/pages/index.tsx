@@ -45,11 +45,15 @@ function App() {
     const editorRef = useRef(null);//编辑器
 
     //更新指定节点的tree数据
-    const updateSider =  (key,data)=>{
-        setTreeData((origin) =>
-            updateTreeData(origin, key, data),
-        );
-    }
+    const updateSider = (key, data) =>
+        new Promise<void>((resolve) => {
+            setTimeout(() => {
+                setTreeData((origin) =>
+                    updateTreeData(origin, key, data),
+                );
+                resolve();
+            }, 1000);
+        });
 
     //保存笔记
     const saveContent  = ()  => {
